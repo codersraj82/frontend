@@ -24,7 +24,7 @@ const FileUpload = () => {
       setUploadProgress(0);
 
       const response = await axios.post(
-        // "http://localhost:5000/upload",
+        // "http://localhost:5000/upload", //
         "https://xrdbackend.onrender.com/upload",
         formData,
         {
