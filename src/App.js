@@ -30,7 +30,7 @@ function App() {
         <FileList />
       </main>
       <footer className="app-footer">
-        <p>&copy; 2024 YourAppName</p>
+        <p>&copy; 2024 xrd-analysis app</p>
       </footer>
     </>
   );

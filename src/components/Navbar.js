@@ -10,7 +10,7 @@ const Navbar = () => {
           alt="Logo"
           className="navbar-logo"
         />
-        <span className="navbar-title">My App</span>
+        <span className="navbar-title">ResearchZeal</span>
       </div>
       <div className="navbar-right">
         <img
@@ -19,9 +19,9 @@ const Navbar = () => {
           className="navbar-avatar"
         />
         <button className="navbar-menu-icon">
-          <span className="menu-bar"></span>
-          <span className="menu-bar"></span>
-          <span className="menu-bar"></span>
+          <span className="menu-bar">_</span>
+          <span className="menu-bar">_</span>
+          <span className="menu-bar">_</span>
         </button>
       </div>
     </nav>

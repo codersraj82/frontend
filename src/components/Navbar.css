@@ -2,8 +2,8 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0;
+    /* align-items: center; */
+    padding: 0.25rem;
     background-color: #333;
     color: #fff;
     position: sticky;
@@ -15,7 +15,9 @@
 /* Left Section */
 .navbar-left {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 /* Logo */
@@ -36,6 +38,7 @@
 /* Right Section */
 .navbar-right {
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -50,20 +53,22 @@
 
 /* Mobile Menu Icon */
 .navbar-menu-icon {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 20px;
-    background: none;
-    border: none;
+    background: wheat;
+    border:#0e0d0d;
     cursor: pointer;
+    color: bisque;
 }
 
 .navbar-menu-icon .menu-bar {
     height: 3px;
     background-color: #fff;
-    border-radius: 3px;
+    border-radius: 5px;
+    border-color: #0e0d0d;
     transition: all 0.3s ease;
 }
 
@@ -72,4 +77,6 @@
     .navbar-title {
         font-size: 16px;
     }
+    .navbar-menu-icon {
+        display: none;}
 }
