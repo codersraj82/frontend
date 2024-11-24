@@ -4,9 +4,9 @@
     flex-direction: column;
     gap:2rem;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 300px;
+    margin: 1rem auto;
+    padding: 5px;
     background-color: #222221;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgb(245, 190, 190);
@@ -148,7 +148,7 @@ p {
 }
 
 @media (min-width: 768px) {
-
+     
     .file-upload {
         padding: 2rem;
       }
