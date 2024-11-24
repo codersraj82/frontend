@@ -150,7 +150,7 @@ p {
 @media (min-width: 768px) {
      
     .file-upload {
-        padding: 2rem;
+        padding: 0.5rem;
       }
     
       .file-label, .upload-button {

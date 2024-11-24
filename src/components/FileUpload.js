@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./FileUpload.css";
 import { API_BASE_URL } from "../config";
+import FileList from "./FileList";
 
 const FileUpload = () => {
   const [file, setFile] = useState(null); // File state
@@ -55,28 +56,32 @@ const FileUpload = () => {
   };
 
   return (
-    <div className="file-upload-container">
-      <h2>File Upload</h2>
-      <input
-        type="file"
-        onChange={handleFileChange}
-        className="file-upload"
-        accept="*"
-      />
-      <button onClick={handleUpload} className="upload-button">
-        Upload
-      </button>
+    <>
+      <div className="file-upload-container">
+        <h2>File Upload</h2>
+        <input
+          type="file"
+          onChange={handleFileChange}
+          className="file-upload"
+          accept="*"
+        />
+        <button onClick={handleUpload} className="upload-button">
+          Upload
+        </button>
 
-      {/* Progress and Message Feedback */}
-      {uploadProgress > 0 && (
-        <p className="upload-progress">Upload Progress: {uploadProgress}%</p>
-      )}
-      {message && (
-        <p className={`message ${uploadProgress === 0 ? "success" : "error"}`}>
-          {message}
-        </p>
-      )}
-    </div>
+        {/* Progress and Message Feedback */}
+        {uploadProgress > 0 && (
+          <p className="upload-progress">Upload Progress: {uploadProgress}%</p>
+        )}
+        {message && (
+          <p
+            className={`message ${uploadProgress === 0 ? "success" : "error"}`}
+          >
+            {message}
+          </p>
+        )}
+      </div>
+    </>
   );
 };
 

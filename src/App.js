@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FileUpload from "./components/FileUpload";
 import Navbar from "./components/Navbar";
+import FileList from "./components/FileList";
+// import FileListWithDelete from "./components/FileListWithDelete";
+
 import "./App.css";
 function App() {
   const [message, setMessage] = useState("");
@@ -24,6 +27,7 @@ function App() {
       <main className="app-main">
         {/* <p>Backend Message: {message}</p> */}
         <FileUpload />
+        <FileList />
       </main>
       <footer className="app-footer">
         <p>&copy; 2024 YourAppName</p>

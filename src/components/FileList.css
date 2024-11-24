@@ -1,0 +1,83 @@
+/* Container styling */
+div {
+    display: flex;
+    flex-direction: column;
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    align-items: center;
+  }
+  
+  /* Header styling */
+  button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    width:fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Error message styling */
+  p {
+    font-size: 1rem;
+    color: #ff4d4d;
+    margin-top: 10px;
+  }
+  
+  /* File list styling */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Link styling */
+  li a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    flex-grow: 1;
+  }
+  
+  li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Delete button styling */
+  li button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  li button:hover {
+    background-color: #cc0000;
+  }
+  

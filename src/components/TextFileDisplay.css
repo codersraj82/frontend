@@ -1,0 +1,30 @@
+.file-content {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc; /* Light border to separate content area */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    max-height: 400px; /* Limit height to avoid overflowing */
+    overflow-y: auto; /* Enable vertical scrolling if content is too long */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for text */
+  }
+  
+  .file-content pre {
+    margin: 0; /* Remove default margin */
+    white-space: pre-wrap; /* Allow wrapping of long lines */
+    word-wrap: break-word; /* Ensure long words break to fit the container */
+    color: #333; /* Dark text color for better readability */
+    font-size: 14px; /* Adjust font size for comfortable reading */
+    line-height: 1.5; /* Increase line height for readability */
+  }
+  
+  @media (max-width: 600px) {
+    .file-content {
+      padding: 15px; /* Less padding on smaller screens */
+    }
+  
+    .file-content pre {
+      font-size: 12px; /* Smaller font size for mobile */
+    }
+  }
+  
