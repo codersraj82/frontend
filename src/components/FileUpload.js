@@ -25,7 +25,7 @@ const FileUpload = () => {
 
       const response = await axios.post(
         // "http://localhost:5000/upload",
-        "https://xrdbackend.onrender.com/upload",
+        "https://xrdbackend.onrender.com",
         formData,
         {
           headers: {
