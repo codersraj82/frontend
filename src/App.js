@@ -9,7 +9,8 @@ function App() {
   useEffect(() => {
     // Fetch data from the backend
     axios
-      .get("http://localhost:5000/")
+      // .get("http://localhost:5000/")
+      .get("https://your-backend-app.onrender.com/api/endpoint")
       .then((response) => setMessage(response.data))
       .catch((error) => console.error(error));
   }, []);
