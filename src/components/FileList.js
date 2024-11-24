@@ -8,12 +8,15 @@ const FileList = () => {
   const [error, setError] = useState(""); // State for errors
   const [selectedFile, setSelectedFile] = useState(null); // State for the selected file content
   const [clearContent, setClearContent] = useState(false);
-  const BASE_URL = "http://localhost:5000"; // Backend URL
+  const BASE_URL =
+    /* "https://xrdbackend.onrender.com "; */ "http://localhost:5000"; // Backend URL
 
   // Fetch the file list from the backend
   const fetchFiles = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/files`);
+      const response = await axios.get(
+        "https://xrdbackend.onrender.com/upload "
+      ); //(`${BASE_URL}/upload`);
       setFiles(response.data); // Update state with the file list
       setError(""); // Clear any previous errors
     } catch (err) {
@@ -30,7 +33,7 @@ const FileList = () => {
   // Delete a file
   const deleteFile = async (fileName) => {
     try {
-      await axios.delete(`${BASE_URL}/delete-upload/${fileName}`);
+      await axios.delete(`https://xrdbackend.onrender.com/upload/${fileName}`);
       setFiles(files.filter((file) => file !== fileName)); // Update state to remove the deleted file
       setError(""); // Clear any previous errors
       if (selectedFile === fileName) {
