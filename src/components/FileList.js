@@ -92,7 +92,6 @@ const FileList = () => {
           </div>
         )}
       </div>
-      <FileReader />
     </div>
   );
 };
