@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TextFileDisplay from "./TextFileDisplay"; // Import the TextFileDisplay component
 import "./FileList.css";
-import FileReader from "./FileReader";
+
 const FileList = () => {
   const [files, setFiles] = useState([]); // State to store the list of files
   const [error, setError] = useState(""); // State for errors
@@ -47,10 +47,9 @@ const FileList = () => {
 
   // Handle file selection and fetch content
   const handleFileSelect = async (fileName) => {
-    console.log("fetch content");
     try {
       const response = await axios.get(
-        `https://xrdbackend.onrender.com/upload/${fileName}`,
+        `/http://localhost:5000/upload/${fileName}`,
         {
           responseType: "text", // Ensure the response is treated as text
         }
@@ -83,7 +82,6 @@ const FileList = () => {
           <p> upload a file or click to see uploaded files.</p>
         )}
       </ul>
-
       <div>
         {selectedFile && (
           <div className="file-content-container">
@@ -92,7 +90,6 @@ const FileList = () => {
           </div>
         )}
       </div>
-      <FileReader />
     </div>
   );
 };

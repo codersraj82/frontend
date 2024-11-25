@@ -14,9 +14,7 @@ const FileList = () => {
   // Fetch the file list from the backend
   const fetchFiles = async () => {
     try {
-      const response = await axios.get(
-        "https://xrdbackend.onrender.com/upload "
-      ); //(`${BASE_URL}/upload`);
+      const response = await axios.get("http://localhost:5000/upload "); //(`${BASE_URL}/upload`);
       setFiles(response.data); // Update state with the file list
       setError(""); // Clear any previous errors
     } catch (err) {
@@ -33,7 +31,7 @@ const FileList = () => {
   // Delete a file
   const deleteFile = async (fileName) => {
     try {
-      await axios.delete(`https://xrdbackend.onrender.com/upload/${fileName}`);
+      await axios.delete(`http://localhost:5000/upload/${fileName}`);
       setFiles(files.filter((file) => file !== fileName)); // Update state to remove the deleted file
       setError(""); // Clear any previous errors
       if (selectedFile === fileName) {
@@ -50,7 +48,7 @@ const FileList = () => {
     console.log("fetch content");
     try {
       const response = await axios.get(
-        `https://xrdbackend.onrender.com/upload/${fileName}`,
+        `http://localhost:5000/uploads/${fileName}`,
         {
           responseType: "text", // Ensure the response is treated as text
         }
