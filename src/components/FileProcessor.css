@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #f9f9f9, #e0e0e0);
+  color: #333;
+}
+
+h2, h3 {
+  text-align: center;
+  color: #555;
+}
+
+p {
+  text-align: center;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Container Styles */
+div {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* List Styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  background: #f3f3f3;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease-out;
+}
+
+li:hover {
+  background: #eaeaea;
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Button Styles */
+button {
+  padding: 6px 12px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:nth-child(1) {
+  background: #4caf50;
+  color: #fff;
+}
+
+button:nth-child(1):hover {
+  background: #45a049;
+}
+
+button:nth-child(2) {
+  background: #f44336;
+  color: #fff;
+}
+
+button:nth-child(2):hover {
+  background: #e53935;
+}
+
+/* Message Styles */
+p {
+  padding: 10px;
+  font-size: 1rem;
+  color: #555;
+  border-radius: 4px;
+  background: #fff8e1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

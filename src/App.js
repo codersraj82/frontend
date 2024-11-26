@@ -3,20 +3,12 @@ import axios from "axios";
 import FileUpload from "./components/FileUpload";
 import Navbar from "./components/Navbar";
 import FileList from "./components/FileList";
+import FileProcessor from "./components/FileProcessor";
 // import FileListWithDelete from "./components/FileListWithDelete";
 
 import "./App.css";
 function App() {
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    // Fetch data from the backend
-    axios
-      // .get("http://localhost:5000/")
-      .get("https://your-backend-app.onrender.com/api/endpoint")
-      .then((response) => setMessage(response.data))
-      .catch((error) => console.error(error));
-  }, []);
 
   return (
     <>
@@ -28,6 +20,7 @@ function App() {
         {/* <p>Backend Message: {message}</p> */}
         <FileUpload />
         <FileList />
+        <FileProcessor />
       </main>
       <footer className="app-footer">
         <p>&copy; 2024 xrd-analysis app</p>
