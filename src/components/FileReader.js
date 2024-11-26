@@ -5,7 +5,7 @@ export default function FileReader() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [error, setError] = useState("");
   const BASE_URL =
-    "https://xrdbackend.onrender.com"; /* http://localhost:5000; */
+    "https://xrd-backend.onrender.com"; /* http://localhost:5000; */
 
   const handleFileSelect = async (fileName) => {
     try {
