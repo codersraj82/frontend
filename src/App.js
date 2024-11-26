@@ -19,7 +19,7 @@ function App() {
       <main className="app-main">
         {/* <p>Backend Message: {message}</p> */}
         <FileUpload />
-        <FileList />
+        {/* <FileList /> */}
         <FileProcessor />
       </main>
       <footer className="app-footer">

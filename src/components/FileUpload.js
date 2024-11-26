@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./FileUpload.css";
-import { API_BASE_URL } from "../config";
 import FileList from "./FileList";
 
 const FileUpload = () => {
   const [file, setFile] = useState(null); // File state
   const [uploadProgress, setUploadProgress] = useState(0); // Progress state
   const [message, setMessage] = useState(""); // Feedback message state
-
+  console.log(process.env); // React
+  const BASE_URL = "http://localhost:5000";
+  // const BASE_URL = "https://xrd-backend.onrender.com";
+  // const BASE_URL = "https://xrd-backend.up.railway.app";
+  console.log(BASE_URL);
   // Handle file input change
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -30,21 +33,17 @@ const FileUpload = () => {
       setUploadProgress(0);
 
       // Axios POST request to upload the file
-      const response = await axios.post(
-        /* "http://localhost:5000/upload" */ "https://xrd-backend.onrender.com/upload",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          onUploadProgress: (progressEvent) => {
-            const percentCompleted = Math.round(
-              (progressEvent.loaded * 100) / progressEvent.total
-            );
-            setUploadProgress(percentCompleted); // Update progress
-          },
-        }
-      );
+      const response = await axios.post(`${BASE_URL}/upload`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent) => {
+          const percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          setUploadProgress(percentCompleted); // Update progress
+        },
+      });
 
       setMessage(response.data.message || "File uploaded successfully!");
       setFile(null); // Reset file input
