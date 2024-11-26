@@ -10,7 +10,8 @@ const FileProcessor = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [message, setMessage] = useState("");
 
-  const BASE_URL = "http://localhost:5000"; // Change to your backend URL when deployed.
+  const BASE_URL =
+    "https://xrdbackend.onrender.com"; /* "http://localhost:5000" */ // Change to your backend URL when deployed.
 
   // Fetch uploaded files
   const fetchUploadedFiles = async () => {

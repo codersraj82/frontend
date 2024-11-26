@@ -9,7 +9,7 @@ const FileList = () => {
   const [selectedFile, setSelectedFile] = useState(null); // State for the selected file content
   const [clearContent, setClearContent] = useState(false);
   const BASE_URL =
-    /* "https://xrdbackend.onrender.com "; */ "http://localhost:5000"; // Backend URL
+    "https://xrdbackend.onrender.com "; /* "http://localhost:5000" */ // Backend URL
 
   // Fetch the file list from the backend
   const fetchFiles = async () => {
@@ -22,11 +22,6 @@ const FileList = () => {
       setError("Unable to fetch files. Please try again.");
     }
   };
-
-  // Fetch files on component mount
-  // useEffect(() => {
-  //   fetchFiles();
-  // }, []);
 
   // Delete a file
   const deleteFile = async (fileName) => {

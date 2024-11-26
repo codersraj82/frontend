@@ -4,15 +4,14 @@ import axios from "axios";
 export default function FileReader() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [error, setError] = useState("");
+  const BASE_URL =
+    "https://xrdbackend.onrender.com"; /* http://localhost:5000; */
 
   const handleFileSelect = async (fileName) => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/upload/${fileName}`,
-        {
-          responseType: "text", // Ensure the response is treated as text
-        }
-      );
+      const response = await axios.get(`${BASE_URL}/upload/${fileName}`, {
+        responseType: "text", // Ensure the response is treated as text
+      });
       setSelectedFile({ name: fileName, content: response.data });
     } catch (err) {
       console.error("Error reading file content:", err);
