@@ -91,7 +91,14 @@ const FileProcessor = () => {
       <div className="file-list-container">
         <h2>CSV File Processor</h2>
         {message && <p>{message}</p>}
-
+        <button
+          onClick={() => {
+            fetchUploadedFiles();
+            fetchOutputFiles();
+          }}
+        >
+          Refresh
+        </button>
         <h3>Uploaded Files</h3>
         {uploadedFiles.length > 0 ? (
           <ul>
