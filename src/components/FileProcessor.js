@@ -74,7 +74,7 @@ const FileProcessor = () => {
   // Set selected file for viewing
   const handleViewFile = (fileName) => {
     // Assuming output files are stored with their image and pdf names
-    const imageUrl = `${BASE_URL}/outputs/${fileName.replace(".pdf", ".jpg")}`; // Replace .pdf with .jpg if available
+    const imageUrl = `${BASE_URL}/outputs/${fileName.replace(".pdf", ".png")}`; // Replace .pdf with .jpg if available
     const pdfUrl = `${BASE_URL}/outputs/${fileName}`;
 
     setSelectedFile({ imageUrl, pdfUrl });

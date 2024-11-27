@@ -1,48 +1,37 @@
 import React from "react";
+import { Worker, Viewer } from "@react-pdf-viewer/core";
+import "@react-pdf-viewer/core/lib/styles/index.css";
 
-const FileViewerComponent = ({ imageUrl, pdfUrl, onClose }) => {
+const FileViewerComponent = ({ imageUrl, pdfUrl }) => {
   return (
-    <div className="file-viewer">
-      <div className="file-viewer-header">
-        <button
-          onClick={onClose}
-          style={{ position: "relative", right: "10px", top: "10px" }}
-        >
-          Close
-        </button>
-      </div>
+    <div style={{ padding: "20px" }}>
+      <h1>Project Output</h1>
 
-      <div className="file-viewer-content">
-        {/* Display Image */}
-        {imageUrl && (
-          <div>
-            <h3>Image</h3>
-            <img
-              src={imageUrl}
-              alt="Processed Image"
-              style={{
-                width: "100%",
-                maxHeight: "400px",
-                objectFit: "contain",
-              }}
-            />
-          </div>
-        )}
+      {/* Displaying the PDF */}
+      {pdfUrl && (
+        <div style={{ marginBottom: "20px" }}>
+          <h3>PDF Output</h3>
+          <Worker
+            workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
+          >
+            <div style={{ height: "600px" }}>
+              <Viewer fileUrl={pdfUrl} />
+            </div>
+          </Worker>
+        </div>
+      )}
 
-        {/* Display PDF */}
-        {pdfUrl && (
-          <div>
-            <h3>PDF</h3>
-            <iframe
-              src={pdfUrl}
-              width="100%"
-              height="500px"
-              style={{ border: "none" }}
-              title="PDF Viewer"
-            />
-          </div>
-        )}
-      </div>
+      {/* Displaying the Image */}
+      {imageUrl && (
+        <div style={{ marginBottom: "20px" }}>
+          <h3>Image Output</h3>
+          <img
+            src={imageUrl}
+            alt="Project Output"
+            style={{ width: "100%", maxWidth: "800px", height: "auto" }}
+          />
+        </div>
+      )}
     </div>
   );
 };
