@@ -4,6 +4,7 @@ import FileUpload from "./components/FileUpload";
 import Navbar from "./components/Navbar";
 import FileList from "./components/FileList";
 import FileProcessor from "./components/FileProcessor";
+import XRDPeakProcessor from "./components/XRDPeakProcessor";
 // import FileListWithDelete from "./components/FileListWithDelete";
 
 import "./App.css";
@@ -18,6 +19,7 @@ function App() {
       <Navbar />
       <main className="app-main">
         {/* <p>Backend Message: {message}</p> */}
+
         <FileUpload />
         {/* <FileList /> */}
         <FileProcessor />

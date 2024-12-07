@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./FileList.css";
 import "./FileViewerComponent.js";
@@ -10,11 +10,18 @@ const FileProcessor = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [message, setMessage] = useState("");
 
+  // const [minTheta, setMinTheta] = useState(20);
+  const minTheta = useRef(10);
+  const maxTheta = useRef(90);
+  const minPeakIntensity = useRef(200);
+  const thetaDistance = useRef(50);
+  // User filteration
+
   // Change to your backend URL when deployed.
 
-  // const BASE_URL = "http://localhost:5000";
+  const BASE_URL = "http://localhost:5000";
   // const BASE_URL = "https://xrd-backend.onrender.com";
-  const BASE_URL = "https://xrd-backend.up.railway.app";
+  // const BASE_URL = "https://xrd-backend.up.railway.app";
 
   // Fetch uploaded files
   const fetchUploadedFiles = async () => {
@@ -39,10 +46,21 @@ const FileProcessor = () => {
   };
 
   // Process a file
-  const processFile = async (fileName) => {
+  const processFile = async (
+    fileName,
+    min_theta,
+    max_theta,
+    min_peak_intensity,
+    theta_distance
+  ) => {
     try {
       setMessage("Processing file...");
-      await axios.post(`${BASE_URL}/process/${fileName}`);
+      await axios.post(`${BASE_URL}/process/${fileName}`, {
+        min_theta,
+        max_theta,
+        min_peak_intensity,
+        theta_distance,
+      });
       setMessage("File processed successfully!");
       fetchOutputFiles(); // Refresh the output files list
     } catch (err) {
@@ -85,6 +103,19 @@ const FileProcessor = () => {
     setSelectedFile(null);
   };
 
+  function handleMinTheta(min_theta) {
+    minTheta.current = min_theta;
+  }
+  function handleMaxTheta(max_theta) {
+    maxTheta.current = max_theta;
+  }
+  function handleMinPeakIntensity(min_peak_intensity) {
+    minPeakIntensity.current = min_peak_intensity;
+  }
+  function handlethetaDistance(theta_distance) {
+    thetaDistance.current = theta_distance;
+  }
+
   useEffect(() => {
     fetchUploadedFiles();
     fetchOutputFiles();
@@ -94,7 +125,7 @@ const FileProcessor = () => {
     <>
       <div className="file-list-container">
         <h2>CSV File Processor</h2>
-        {message && <p>{message}</p>}
+
         <button
           onClick={() => {
             fetchUploadedFiles();
@@ -107,9 +138,59 @@ const FileProcessor = () => {
         {uploadedFiles.length > 0 ? (
           <ul>
             {uploadedFiles.map((file, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.5rem",
+                }}
+              >
+                {message && <p>{message}</p>}
                 <p>{file}</p>
-                <button onClick={() => processFile(file)}>Process</button>
+                {/* Insert user filter data */}
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  onChange={(e) => handleMinTheta(e.target.value)}
+                  placeholder="Enter min theta"
+                />
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  onChange={(e) => handleMaxTheta(e.target.value)}
+                  placeholder="Enter max theta"
+                />
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  onChange={(e) => handleMinPeakIntensity(e.target.value)}
+                  placeholder="Enter min peak intensity value"
+                />
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  onChange={(e) => handlethetaDistance(e.target.value)}
+                  placeholder="Enter Theta distance"
+                />
+
+                <button
+                  onClick={() =>
+                    processFile(
+                      file,
+                      minTheta,
+                      maxTheta,
+                      minPeakIntensity,
+                      thetaDistance
+                    )
+                  }
+                >
+                  Process
+                </button>
                 <button onClick={() => deleteFile(file, false)}>Delete</button>
               </li>
             ))}

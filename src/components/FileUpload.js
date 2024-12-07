@@ -8,9 +8,9 @@ const FileUpload = () => {
   const [uploadProgress, setUploadProgress] = useState(0); // Progress state
   const [message, setMessage] = useState(""); // Feedback message state
   console.log(process.env); // React
-  // const BASE_URL = "http://localhost:5000";
+  const BASE_URL = "http://localhost:5000";
   // const BASE_URL = "https://xrd-backend.onrender.com";
-  const BASE_URL = "https://xrd-backend.up.railway.app";
+  // const BASE_URL = "https://xrd-backend.up.railway.app";
   console.log(BASE_URL);
   // Handle file input change
   const handleFileChange = (event) => {
