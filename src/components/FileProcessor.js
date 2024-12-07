@@ -19,9 +19,9 @@ const FileProcessor = () => {
 
   // Change to your backend URL when deployed.
 
-  const BASE_URL = "http://localhost:5000";
+  // const BASE_URL = "http://localhost:5000";
   // const BASE_URL = "https://xrd-backend.onrender.com";
-  // const BASE_URL = "https://xrd-backend.up.railway.app";
+  const BASE_URL = "https://xrd-backend.up.railway.app";
 
   // Fetch uploaded files
   const fetchUploadedFiles = async () => {
