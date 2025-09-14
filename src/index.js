@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { register } from "./serviceWorker";
 
-register();
+//register();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
